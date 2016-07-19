@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    {% for diff in diffs %}
+        <div class="panel-heading">
+            {% if diff.header.old_path != diff.header.new_path and diff.header.old_version == '0000000' and diff.header.new_version != '0000000' %}
+                {{ diff.header.new_path }} <span class="label label-default">new</span>
+            {% elif diff.header.old_path != diff.header.new_path and diff.header.old_version != '0000000' and diff.header.new_version == '0000000' %}
+                {{ diff.header.old_path }} <span class="label label-default">deleted</span>
+            {% elif diff.header.old_path == diff.header.new_path and diff.header.old_version != '0000000' and diff.header.new_version != '0000000' %}
+                {{ diff.header.old_path }} <span class="label label-default">modified</span>
+            {% elif diff.header.old_path != diff.header.new_path and diff.header.old_version != '0000000' and diff.header.new_version != '0000000' %}
+                {{ diff.header.old_path }} -> {{ diff.header.new_path }}
+                <span class="label label-default">renamed</span>
+            {% endif %}
+        </div>
+        <div class="panel-body">
+            {% for change in diff.changes %}
+                <div class="row
+                {% if change.0 and change.1 %}
+                {% elif change.0 %}alert-danger
+                {% elif change.1 %}alert-success
+                {% endif %}">
+                    <div class="col-lg-1">{% firstof change.0 '' %}</div>
+                    <div class="col-lg-1 ">{% firstof change.1 '' %}</div>
+                    <div class="col-lg-1 border">
+                        {% if change.0 and change.1 %}&nbsp;
+                        {% elif change.0 %}-
+                        {% elif change.1 %}+
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-9">{{ change.2 }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,16 @@
+body {
+    padding-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+}
+
+.output {
+    margin-top: 20px;
+}
+
+.border {
+    border-right: 1px solid grey;
+}

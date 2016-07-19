@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Diff Parser</title>
+    <link href="{% static 'main.css' %}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="http://malsup.github.com/jquery.form.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('form').ajaxForm({
+                success: function (response) {
+                    $('.output').html(response);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <form action="{% url 'parse' %}" method="POST">
+        {% csrf_token %}
+        <textarea name="diff"></textarea>
+        <button type="submit">Parse</button>
+    </form>
+    <div class="output"></div>
+</div>
+</body>
+</html>
