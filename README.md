@@ -14,6 +14,6 @@ Simple application for parsing diffs and output changes in nice format.
 
 ## Notes
 
-Application uses modified dependancy [whatthepatch](https://github.com/cscorley/whatthepatch) with additionally
+The application uses modified dependency [whatthepatch](https://github.com/cscorley/whatthepatch) with additionally
 implemented git diff binary files support. [Here is PR](https://github.com/cscorley/whatthepatch/pull/6) for the
 implementation fully covered with tests.
