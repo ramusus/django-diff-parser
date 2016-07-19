@@ -11,3 +11,9 @@ Simple application for parsing diffs and output changes in nice format.
 * install dependencies `pip install -r requirements.txt`
 * run the project `./manage.py runserver`
 * open `http://localhost:8000` in browser
+
+## Notes
+
+Application uses modified dependancy [whatthepatch](https://github.com/cscorley/whatthepatch) with additionally
+implemented git diff binary files support. [Here is PR](https://github.com/cscorley/whatthepatch/pull/6) for the
+implementation fully covered with tests.
