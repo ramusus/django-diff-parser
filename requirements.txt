@@ -1,2 +1,2 @@
 Django
-whatthepatch
+-e git+git@github.com:ramusus/whatthepatch.git#egg=whatthepatch
